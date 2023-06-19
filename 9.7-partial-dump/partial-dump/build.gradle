@@ -1,0 +1,57 @@
+buildscript {
+    ext {
+        pluginName = 'partial-dump'
+        pluginClassname = 'kr.co.wikibook.PartialDumpPlugin'
+        pluginDescription = 'simple PartialDumpPlugin example'
+        elasticsearchVersion = project.hasProperty('esVer')
+                ? project.getProperties().get('esVer') : '8.4.2'
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30"
+        classpath "org.elasticsearch.gradle:build-tools:${elasticsearchVersion}"
+    }
+}
+
+apply plugin: 'org.jetbrains.kotlin.jvm'
+apply plugin: 'elasticsearch.esplugin'
+
+group 'kr.co.wikibook'
+version '1.0.0.0' + '-es-' + elasticsearchVersion
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk8"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.5.2"
+
+    compileOnly "org.elasticsearch:elasticsearch:${elasticsearchVersion}"
+
+    implementation ("org.apache.hadoop:hadoop-client:2.7.3") {
+        exclude module: "commons-beanutils"
+        exclude module: "commons-beanutils-core"
+        exclude module: "netty-all"
+    }
+}
+
+esplugin {
+    name pluginName
+    description pluginDescription
+    classname pluginClassname
+}
+
+compileKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}
+compileTestKotlin {
+    kotlinOptions.jvmTarget = "1.8"
+}

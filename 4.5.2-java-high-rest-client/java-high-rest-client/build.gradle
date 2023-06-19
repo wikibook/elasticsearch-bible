@@ -1,0 +1,20 @@
+plugins {
+    id 'org.jetbrains.kotlin.jvm' version '1.5.30'
+}
+
+group 'kr.co.wikibook'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib"
+    implementation "org.elasticsearch.client:elasticsearch-rest-high-level-client:7.17.6"
+
+//    implementation fileTree(dir: "libs", includes: ["*.jar"])
+//
+//    implementation "org.elasticsearch:elasticsearch:8.4.2"
+//    implementation "org.elasticsearch.client:elasticsearch-rest-client:8.4.2"
+}

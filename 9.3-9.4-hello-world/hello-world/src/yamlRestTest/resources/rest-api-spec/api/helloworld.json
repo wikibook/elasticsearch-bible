@@ -1,0 +1,25 @@
+{
+  "helloworld": {
+    "documentation": {
+      "url": "https://wikibook.co.kr"
+    },
+    "stability": "stable",
+    "visibility": "public",
+    "url": {
+      "paths": [
+        {
+          "path": "/_hello",
+          "methods": ["GET"]
+        }
+      ]
+    },
+    "params": {
+      "name": {
+        "type": "string",
+        "description": "the name variable for greetings",
+        "default": "world"
+      }
+    },
+    "body": null
+  }
+}

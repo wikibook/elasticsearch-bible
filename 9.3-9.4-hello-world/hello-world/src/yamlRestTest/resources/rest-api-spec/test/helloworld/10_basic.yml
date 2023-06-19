@@ -1,0 +1,14 @@
+---
+"Basic":
+  - do:
+      helloworld: { }
+
+  - match: { message: "hello, world!" }
+
+---
+"BasicWithArgs":
+  - do:
+      helloworld:
+        name: "world2"
+
+  - match: { message: "hello, world2!" }

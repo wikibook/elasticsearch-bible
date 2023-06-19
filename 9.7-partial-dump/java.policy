@@ -1,0 +1,19 @@
+grant {
+  permission java.lang.RuntimePermission "*";
+  permission java.util.PropertyPermission "*", "read,write";
+  permission java.net.SocketPermission "*", "accept,connect,listen,resolve";
+  permission java.lang.reflect.ReflectPermission "suppressAccessChecks", "*";
+  permission java.util.logging.LoggingPermission "control";
+  permission java.security.SecurityPermission "*";
+  permission javax.management.MBeanPermission "*", "*";
+  permission java.io.SerializablePermission "*";
+  permission groovy.security.GroovyCodeSourcePermission "*", "*";
+  permission java.io.FilePermission "<<ALL FILES>>", "read,write,delete";
+  permission javax.management.MBeanTrustPermission "register";
+  permission javax.management.MBeanServerPermission "createMBeanServer";
+  permission javax.security.auth.AuthPermission "modifyPrincipals";
+  permission javax.security.auth.AuthPermission "doAs";
+  permission javax.security.auth.AuthPermission "getSubject";
+  permission javax.security.auth.AuthPermission "modifyPrivateCredentials";
+  permission javax.security.auth.PrivateCredentialPermission "org.apache.hadoop.security.Credentials * \"*\"", "read";
+};
